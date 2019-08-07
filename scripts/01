@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Login :UID :Path"
+cat /etc/passwd | cut -d ':' -f 1,3,6

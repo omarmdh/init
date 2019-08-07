@@ -1,0 +1,8 @@
+# this is the file : /home/user/.ssh/authorized_keys
+
+#in this file we can find our RSA key 
+#and we can generate it by the commande :
+
+# ssh-keygen
+# ssh-copy-id -i ~/.ssh/id_rsa.pub UserName@RemoteServer
+

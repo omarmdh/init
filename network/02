@@ -1,0 +1,2 @@
+ifconfig en0 | grep broadcast
+eval ping -c 2 $(ifconfig en0 | grep broadcast | awk '{print $6}') | awk '{print $4}' | tr -d :

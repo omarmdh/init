@@ -1,0 +1,7 @@
+# GRAPHIC version : 
+1 Put your login and password in "LogIn"
+2 enter the Hostname or IP address and the port and then click Open.
+
+# SSH version: 
+1 enable ssh service in your vm by "sudo service ssh start" command
+2 "ssh <username>@<ip>" command then put password if ssh ask for

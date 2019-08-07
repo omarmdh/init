@@ -1,0 +1,5 @@
+user=1
+read -p "Username : " user
+killall -u $user
+sudo deluser $user
+sudo rm -rf /home/$user

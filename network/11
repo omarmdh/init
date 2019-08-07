@@ -1,0 +1,9 @@
+# the device who makes the link between my local network and the outside world is tne NAT "Network Address Translation".
+# as you can see in the output on the previous command :
+
+#1  10.12.254.254 (10.12.254.254)  0.669 ms  0.592 ms  0.395 ms  #this is the gateway , thats mean we are still in the local network
+#2  nat (10.21.1.1)  0.212 ms  0.298 ms  0.237 ms
+#3  ll81-29-217-192-81.ll81.iam.net.ma (81.192.217.29)  0.403 ms  0.339 ms  0.391 ms # now we are at the provider service
+#
+#as you see NAT connect me with the outside world 
+#the NAT translat my internal IP to an external IP
